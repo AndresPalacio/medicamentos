@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan de Medicación Completo</title>
+<style>
+body{font-family:Arial;margin:0;background:#f4f7fb;padding:12px}
+.card{background:white;border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+h1,h2{margin-top:0}
+.day{border-left:4px solid #1565c0;padding-left:10px;margin:16px 0}
+label{display:block;padding:8px 0}
+img{width:100%;max-width:160px;height:140px;object-fit:contain}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(120px,1fr));gap:12px}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>💊 Tratamiento</h1>
+<p>Inicio: 11/06/2026 12:00 PM</p>
+</div>
+
+<div class="card">
+<h2>Medicamentos</h2>
+<div class="grid">
+<div><img src="https://olimpica.vtexassets.com/arquivos/ids/615883/7702057075903.jpg?v=638935054368500000"><br>Trimebutina</div>
+<div><img src="https://www.drogueriaetica.com/wp-content/uploads/2025/03/HIDROPEP-SUSPENSION-150-ML-ICOM.jpg"><br>Hidropep</div>
+<div><img src="https://copservir.vtexassets.com/arquivos/ids/1881176-800-auto?v=639108051302970000&width=800&height=auto&aspect=true"><br>Biscater</div>
+<div><img src="https://copservir.vtexassets.com/arquivos/ids/1877458/FLORATIL-250-MG_F.png?v=639107423147770000"><br>Floratil</div>
+</div>
+</div>
+
+<div class="card">
+<h2>Cronograma completo</h2>
+
+<div class="day"><b>11 Junio</b>
+<label><input type="checkbox" class="dose" checked> 12:00 PM - Trimebutina + Biscater + Floratil</label>
+<label><input type="checkbox" class="dose"> 12:30 PM - Hidropep</label>
+<label><input type="checkbox" class="dose"> 08:00 PM - Trimebutina + Biscater</label>
+<label><input type="checkbox" class="dose"> 08:30 PM - Hidropep</label>
+<label><input type="checkbox" class="dose"> 12:00 AM - Floratil</label>
+</div>
+
+<div class="day"><b>12 Junio</b>
+<label><input type="checkbox" class="dose"> 04:00 AM - Trimebutina + Biscater</label>
+<label><input type="checkbox" class="dose"> Desayuno +30m - Hidropep</label>
+<label><input type="checkbox" class="dose"> 12:00 PM - Trimebutina + Biscater + Floratil</label>
+<label><input type="checkbox" class="dose"> 12:30 PM - Hidropep</label>
+<label><input type="checkbox" class="dose"> 08:00 PM - Trimebutina + Biscater</label>
+<label><input type="checkbox" class="dose"> 08:30 PM - Hidropep</label>
+<label><input type="checkbox" class="dose"> 12:00 AM - Floratil</label>
+</div>
+
+<div class="day"><b>13 Junio</b>
+<label><input type="checkbox" class="dose"> 04:00 AM - Trimebutina + Último Biscater</label>
+<label><input type="checkbox" class="dose"> Desayuno +30m - Hidropep</label>
+<label><input type="checkbox" class="dose"> 12:00 PM - Trimebutina + Último Floratil</label>
+<label><input type="checkbox" class="dose"> 12:30 PM - Hidropep</label>
+<label><input type="checkbox" class="dose"> 08:00 PM - Trimebutina</label>
+<label><input type="checkbox" class="dose"> 08:30 PM - Hidropep</label>
+</div>
+
+<div class="day"><b>14 Junio</b>
+<label><input type="checkbox" class="dose"> 04:00 AM - Trimebutina</label>
+<label><input type="checkbox" class="dose"> Desayuno +30m - Hidropep</label>
+<label><input type="checkbox" class="dose"> 12:00 PM - Trimebutina</label>
+<label><input type="checkbox" class="dose"> 12:30 PM - Hidropep</label>
+<label><input type="checkbox" class="dose"> 08:00 PM - Última Trimebutina</label>
+<label><input type="checkbox" class="dose"> 08:30 PM - Hidropep</label>
+</div>
+
+<div class="day"><b>15 al 19 Junio</b>
+<label><input type="checkbox" class="dose"> Hidropep después del desayuno</label>
+<label><input type="checkbox" class="dose"> Hidropep después del almuerzo</label>
+<label><input type="checkbox" class="dose"> Hidropep después de la cena</label>
+</div>
+</div>
+
+<script>
+document.querySelectorAll('.dose').forEach((c,i)=>{
+ let v=localStorage.getItem('dose_'+i);
+ if(v!==null) c.checked=v==='true';
+ c.onchange=()=>localStorage.setItem('dose_'+i,c.checked);
+});
+</script>
+</body></html>
